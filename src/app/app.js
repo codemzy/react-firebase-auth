@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import routes from './config/router'; // app routes
-import withAuthentication from './components/auth/hocAuthentication'; // hoc user authentication
+// app routes
+import routes from './config/router';
+
+// hoc user authentication
+import withAuthentication from './components/auth/hocAuthentication';
+
+// firebase instance
+import Firebase from './config/firebase';
+import { FirebaseContext } from './config/context';
 
 // App
 const App = withAuthentication(function App() {
@@ -10,4 +17,8 @@ const App = withAuthentication(function App() {
 });
 
 // render App
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <FirebaseContext.Provider value={new Firebase()}>
+    <App />
+  </FirebaseContext.Provider>, 
+  document.getElementById('app'));
