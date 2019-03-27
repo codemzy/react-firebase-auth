@@ -1,3 +1,5 @@
+import {firebaseAuth} from '../config/firebase';
+
 // fake user requests - wire this up to a real api
   // for now this just fakes api requests with a timeout
 
@@ -11,13 +13,13 @@ export const checkAuth = new Promise(function(resolve, reject) {
   }, 2000);
 });
 
-// fake register a user
+// register a user
 export const userRegister = function(email, password) {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function() {
-      resolve({...dummyUser, email: email }); // return a user for successful register
-    }, 2000);
-  });
+  return firebaseAuth.createUserWithEmailAndPassword(email, password).then(function(result) {
+      console.log("success", result);
+    }).catch(function(error) {
+      console.log("fail", error);
+    });
 };
 
 // fake log in a user
