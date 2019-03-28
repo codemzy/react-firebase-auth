@@ -29,11 +29,7 @@ export const userLogout = function() {
   return firebaseAuth.signOut();
 };
 
-// fake forgot password 
+// forgot password email
 export const forgotPassword = function(email) {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function() {
-      resolve();
-    }, 2000);
-  });
+  return firebaseAuth.sendPasswordResetEmail(email);
 };
