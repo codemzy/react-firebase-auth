@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 // app routes
 import routes from './config/router';
 
-import {firebaseAuth} from './config/firebase';
-
 // hoc user authentication
 import withAuthentication from './components/auth/hocAuthentication';
 

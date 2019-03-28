@@ -7,11 +7,11 @@ import {firebaseAuth} from '../config/firebase';
 let dummyUser = { firstName: "Fake", lastName: "User", email: "fake.user@email.com" };
 
 // fake check if use is authenticated (logged in)
-export const checkAuth = new Promise(function(resolve, reject) {
-  setTimeout(function() {
-    resolve(false); // return dummyUser for logged in, or false for not logged in
-  }, 2000);
-});
+export const checkAuth = function(callback) {
+  firebaseAuth.onAuthStateChanged(function(user) {
+    return callback(user);
+  });
+};
 
 // register a user
 export const userRegister = function(email, password) {

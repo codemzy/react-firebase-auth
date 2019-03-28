@@ -19,13 +19,15 @@ const withAuthentication = (ComposedComponent) => {
       };
     }
     
-    componentDidMount() {
-      checkAuth.then((result) => {
-        this.setState({user: result, loading: false});
-      }).catch(() => {
-        this.setState({loading: false});
-      })
+    componentDidMount() { 
+      this.listener = checkAuth(function(user) {
+        this.setState({user: user ? user : false, loading: false});
+      }.bind(this));
     } 
+    
+    componentWillUnmount() {
+      this.listener();
+    }
     
     render() { 
        if(this.state.loading) {
