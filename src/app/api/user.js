@@ -17,8 +17,9 @@ export const checkAuth = new Promise(function(resolve, reject) {
 export const userRegister = function(email, password) {
   return firebaseAuth.createUserWithEmailAndPassword(email, password).then(function(result) {
       console.log("success", result);
+      return result;
     }).catch(function(error) {
-      console.log("fail", error);
+      throw new Error(error.message);
     });
 };
 
