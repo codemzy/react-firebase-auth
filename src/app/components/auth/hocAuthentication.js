@@ -20,6 +20,7 @@ const withAuthentication = (ComposedComponent) => {
     }
     
     componentDidMount() { 
+      // checks auth on load and listens for changes e.g. register, log in, log out etc
       this.listener = checkAuth(function(user) {
         this.setState({user: user ? user : false, loading: false});
       }.bind(this));

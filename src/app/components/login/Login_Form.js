@@ -41,9 +41,7 @@ class LoginForm extends React.Component {
       // if no errors then handle the form
       if (!ERRORS.email && !ERRORS.password) {
         this.setState({loading: true});
-        userLogin(this.state.email, this.state.password).then((result) => {
-          this.context.updateUser({ email: this.state.email });
-        }).catch((error) => {
+        userLogin(this.state.email, this.state.password).catch((error) => {
           this.setState({loading: false});
           console.error(error);
         });

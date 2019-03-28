@@ -6,8 +6,9 @@ import {firebaseAuth} from '../config/firebase';
 // fake user info
 let dummyUser = { firstName: "Fake", lastName: "User", email: "fake.user@email.com" };
 
-// fake check if use is authenticated (logged in)
+// check if use is authenticated (logged in)
 export const checkAuth = function(callback) {
+  // firebase listener for auth changes
   firebaseAuth.onAuthStateChanged(function(user) {
     return callback(user);
   });
@@ -22,14 +23,14 @@ export const userRegister = function(email, password) {
     });
 };
 
-// fake log in a user
+// log in a user
 export const userLogin = function(email, password) {
   return firebaseAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
       throw new Error(error.message);
     });
 };
 
-// fake log out a user
+// log out a user
 export const userLogout = function() {
   return firebaseAuth.signOut();
 };
