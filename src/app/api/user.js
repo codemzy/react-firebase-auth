@@ -16,7 +16,6 @@ export const checkAuth = new Promise(function(resolve, reject) {
 // register a user
 export const userRegister = function(email, password) {
   return firebaseAuth.createUserWithEmailAndPassword(email, password).then(function(result) {
-      console.log("success", result);
       return result;
     }).catch(function(error) {
       throw new Error(error.message);
@@ -25,20 +24,14 @@ export const userRegister = function(email, password) {
 
 // fake log in a user
 export const userLogin = function(email, password) {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function() {
-      resolve({...dummyUser, email: email }); // return a user for successful log in
-    }, 2000);
-  });
+  return firebaseAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
+      throw new Error(error.message);
+    });
 };
 
 // fake log out a user
 export const userLogout = function() {
-  return new Promise(function(resolve, reject) {
-    setTimeout(function() {
-      resolve();
-    }, 2000);
-  });
+  return firebaseAuth.signOut();
 };
 
 // fake forgot password 
