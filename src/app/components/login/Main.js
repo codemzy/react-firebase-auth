@@ -1,5 +1,8 @@
 import React from 'react';
 
+// hoc
+import withAlert from '../hocAlert';
+
 // components
 import Loading from '../Loading';
 
@@ -15,6 +18,7 @@ function Main(props) {
               <h1 className="text-white">{props.title}</h1>
               <div className="card shadow my-4">
                 <div className="card-body p-5">
+                  {props.alert}
                   {props.children}
                 </div>
               </div>
@@ -27,4 +31,4 @@ function Main(props) {
   );
 }
 
-export default Main;
+export default withAlert(Main);
