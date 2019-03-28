@@ -1,5 +1,5 @@
 import React from 'react';
-import { checkAuth } from '../../api/user';
+import { checkAuth } from '../../api/auth';
 
 // context for user state
 import { UserContext } from '../../config/context';

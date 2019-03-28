@@ -6,7 +6,7 @@ import { appPath } from '../../config/settings';
 import { UserContext } from '../../config/context';
 
 // api calls
-import { userLogin } from '../../api/user';
+import { userLogin } from '../../api/auth';
 
 // validate
 import { checkEmail, checkPassword } from '../../utils/validate';

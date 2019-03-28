@@ -4,7 +4,7 @@ import React from 'react';
 import { UserContext } from '../../config/context';
 
 // api calls
-import { userLogout } from '../../api/user';
+import { userLogout } from '../../api/auth';
 
 // hoc
 import withHead from '../hocHead';

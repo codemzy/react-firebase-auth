@@ -4,7 +4,7 @@ import React from 'react';
 import { UserContext } from '../../config/context';
 
 // api calls
-import { userRegister } from '../../api/user';
+import { userRegister } from '../../api/auth';
 
 // validate
 import { checkEmail, checkPassword, checkMatch, checkNoMatch } from '../../utils/validate';

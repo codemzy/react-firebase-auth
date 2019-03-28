@@ -1,7 +1,7 @@
 import React from 'react';
 
 // api calls
-import { forgotPassword } from '../../api/user';
+import { forgotPassword } from '../../api/auth';
 
 // validate
 import { checkEmail } from '../../utils/validate';

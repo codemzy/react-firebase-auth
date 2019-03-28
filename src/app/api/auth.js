@@ -1,11 +1,5 @@
 import {firebaseAuth} from '../config/firebase';
 
-// fake user requests - wire this up to a real api
-  // for now this just fakes api requests with a timeout
-
-// fake user info
-let dummyUser = { firstName: "Fake", lastName: "User", email: "fake.user@email.com" };
-
 // check if use is authenticated (logged in)
 export const checkAuth = function(callback) {
   // firebase listener for auth changes
