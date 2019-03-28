@@ -1,0 +1,26 @@
+{
+  "name": "react-login",
+  "version": "1.0.0",
+  "description": "A ReactJS app with register, log in, log out and account components and routes. A starter for front-end authentication.",
+  "scripts": {
+    "start": "parcel src/app/index.html --out-dir dist/app",
+    "build": "parcel build src/app/index.html --out-dir dist/app"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.11.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
+    "validator": "^10.10.0",
+    "firebase": "^5.9.1"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codemzy/react-login.git"
+  },
+  "author": "codemzy",
+  "license": "MIT"
+}
