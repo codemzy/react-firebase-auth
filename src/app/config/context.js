@@ -7,4 +7,4 @@ export const UserContext = React.createContext({
 });
 
 // firebase context
-export const FirebaseContext = React.createContext(null);
+// export const FirebaseContext = React.createContext(null);
