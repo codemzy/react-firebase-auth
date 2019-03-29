@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 // context for alert state
 import { AlertContext } from '../config/context';
@@ -11,17 +12,19 @@ const withAlert = (ComposedComponent) => {
       this.state = {
         alert: {
           type: "danger",
-          message: 'A simple primary alert with *an example link*. Give it a click if you like.',
-          link: "#"
+          message: <span>A simple primary alert with <Link to="#" className="alert-link">an example link</Link>. Give it a click if you like.</span>
         },
         updateAlert: (alert) => { this.setState({ alert: alert }) }
       };
     }
     
     _createAlert() {
+      if (!this.state.alert) {
+        return null; // if no alert return nothing
+      }
       return (
         <div className={"alert alert-" + this.state.alert.type} role="alert">
-          A simple primary alert with <a href="#" className="alert-link">an example link</a>. Give it a click if you like.
+          {this.state.alert.message}
         </div>
       )
     }
