@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { appPath } from '../../config/settings';
 
-// context for user state
-import { UserContext } from '../../config/context';
+// context for user state and alert state
+import { UserContext, AlertContext, withAlertContext } from '../../config/context';
 
 // api calls
 import { userLogin } from '../../api/auth';
@@ -43,7 +43,7 @@ class LoginForm extends React.Component {
         this.setState({loading: true});
         userLogin(this.state.email, this.state.password).catch((error) => {
           this.setState({loading: false});
-          console.error(error);
+          this.props.alertContext.updateAlert({ type: "danger", message: error.message });
         });
       }
     }
@@ -73,4 +73,4 @@ class LoginForm extends React.Component {
 
 LoginForm.contextType = UserContext;
 
-export default LoginForm;
+export default withAlertContext(LoginForm);

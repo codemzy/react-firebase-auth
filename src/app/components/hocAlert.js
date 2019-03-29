@@ -10,10 +10,7 @@ const withAlert = (ComposedComponent) => {
     constructor(props) {
       super(props);
       this.state = {
-        alert: {
-          type: "danger",
-          message: <span>A simple primary alert with <Link to="#" className="alert-link">an example link</Link>. Give it a click if you like.</span>
-        },
+        alert: false,
         updateAlert: (alert) => { this.setState({ alert: alert }) }
       };
     }
