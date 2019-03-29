@@ -23,7 +23,8 @@ const withAlert = (ComposedComponent) => {
         return null; // if no alert return nothing
       }
       return (
-        <div className={"alert alert-" + this.state.alert.type} role="alert">
+        <div className={"alert alert-dismissible alert-" + this.state.alert.type} role="alert">
+          <button type="button" className="close" aria-label="Close" onClick={this.state.updateAlert.bind(this, false)}><span aria-hidden="true">&times;</span></button>
           {this.state.alert.message}
         </div>
       )
