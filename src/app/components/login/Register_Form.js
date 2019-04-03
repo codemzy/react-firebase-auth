@@ -1,7 +1,7 @@
 import React from 'react';
 
-// context for user state
-import { UserContext } from '../../config/context';
+// context
+import { withContext } from '../../config/context';
 
 // api calls
 import { userRegister } from '../../api/auth';
@@ -43,7 +43,7 @@ class RegisterForm extends React.Component {
         this.setState({loading: true});
         userRegister(this.state.email, this.state.password).catch((error) => {
           this.setState({loading: false});
-          console.error(error);
+          this.props.alertContext.updateAlert({ type: "danger", message: error.message });
         });
       }
     }
@@ -75,6 +75,4 @@ class RegisterForm extends React.Component {
   }
 }
 
-RegisterForm.contextType = UserContext;
-
-export default RegisterForm;
+export default withContext(RegisterForm, {alert});
