@@ -10,7 +10,6 @@ class UserForm extends React.Component {
       email: '',
       password: '',
       confirm: '',
-      loading: false,
       errors: {}
     };
   }
@@ -22,7 +21,7 @@ class UserForm extends React.Component {
 
   _handleValidate(event) {
     event.preventDefault();
-    if (!this.state.loading) { // only if not already waiting for a response
+    if (!this.props.loading) { // only if not already waiting for a response
       // validate data
       const ERRORS = { ...this.state.errors,
                       email: this.props.email ? checkEmail(this.state.email) : false,
@@ -34,9 +33,7 @@ class UserForm extends React.Component {
       });
       // if no errors then handle the form
       if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) {
-        console.log("no errors!");
-        // this.setState({loading: true});
-        // this.props.handleSubmit({ email: this.state.email, password: this.state.password });
+        this.props.handleSubmit({ email: this.state.email, password: this.state.password });
       }
     }
   }
@@ -66,7 +63,7 @@ class UserForm extends React.Component {
         </div>
           : false }
         <div className="mt-5">
-          { this.state.loading ? <button type="button" className="btn btn-primary btn-block" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {this.props.button.submitted}</button> :
+          { this.props.loading ? <button type="button" className="btn btn-primary btn-block" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {this.props.button.submitted}</button> :
           <button type="submit" className="btn btn-primary btn-block">{this.props.button.submit}</button> }
         </div>
       </form>
