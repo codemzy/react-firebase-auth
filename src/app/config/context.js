@@ -16,14 +16,15 @@ export const AlertContext = React.createContext({
 });
 
 // context as props hoc for alert
-export const withAlertContext = function(ComposedComponent, contexts = {}) {
+export const hocContext = function(ComposedComponent, ContextConsumer, name) {
   return function (props) {
     return (
-      <AlertContext.Consumer>
-        {alertContext => (
-          <ComposedComponent alertContext={alertContext} {...props} />
-        )}
-      </AlertContext.Consumer>
+      <ContextConsumer>
+        {context => {
+          let newContext = { [name]: context };
+          return <ComposedComponent {...newContext} {...props} />;
+        }}
+      </ContextConsumer>
     );
   }
 }
@@ -32,7 +33,7 @@ export const withAlertContext = function(ComposedComponent, contexts = {}) {
 
 export const withContext = function(Component, contexts = {}) {
   if (contexts.alert) {
-    Component = withAlertContext(Component);
+    Component = hocContext(Component, AlertContext.Consumer, "alertContext");
   }
   return Component;
 }
