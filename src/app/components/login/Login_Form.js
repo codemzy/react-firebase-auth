@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { appPath } from '../../config/settings';
 
 // context for user state and alert state
-import { UserContext, AlertContext, withAlertContext } from '../../config/context';
+import { UserContext, AlertContext, withContext } from '../../config/context';
 
 // api calls
 import { userLogin } from '../../api/auth';
@@ -73,4 +73,4 @@ class LoginForm extends React.Component {
 
 LoginForm.contextType = UserContext;
 
-export default withAlertContext(LoginForm);
+export default withContext(LoginForm, {alert});
