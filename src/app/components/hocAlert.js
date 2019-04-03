@@ -10,7 +10,7 @@ const withAlert = (ComposedComponent) => {
     constructor(props) {
       super(props);
       this.state = {
-        alert: false,
+        alert: false, // { type: "success", message: "This is the alert message" }
         updateAlert: (alert) => { this.setState({ alert: alert }) }
       };
     }
