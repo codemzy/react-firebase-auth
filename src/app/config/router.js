@@ -9,6 +9,7 @@ import withAuthorisation from '../components/auth/hocAuthorisation';
 // components
 import Login from '../components/login/Login';
 import Forgot from '../components/login/Forgot';
+import Reset from '../components/login/Reset';
 import Register from '../components/login/Register';
 import Dashboard from '../components/account/Dashboard';
 import Account from '../components/account/Account';
@@ -26,6 +27,7 @@ const routes = (
       <Route path={appPath + "/logout"} component={withAuthorisation(Logout, true)} />
       <Route exact path={appPath + "/login"} component={withAuthorisation(Login, false)} />
       <Route path={appPath + "/login/forgotten"} component={withAuthorisation(Forgot, false)} />
+      <Route path={appPath + "/login/reset"} component={withAuthorisation(Reset, false)} />
       <Route path={appPath + "/register"} component={withAuthorisation(Register, false)} />
     </div>
   </Router>
