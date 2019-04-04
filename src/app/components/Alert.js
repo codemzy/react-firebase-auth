@@ -1,11 +1,15 @@
 import React from 'react';
 
+// context
+import {connectConsumers} from '../context';
+
+// alert component
 function Alert(props) {
-  if (props.alert) {
+  if (props.alertContext) {
   return (
-    <div className={"alert alert-dismissible alert-" + props.alert.type} role="alert">
-      <button type="button" className="close" aria-label="Close" onClick={props.updateAlert.bind(this, false)}><span aria-hidden="true">&times;</span></button>
-      {props.alert.message}
+    <div className={"alert alert-dismissible alert-" + props.alertContext.alert.type} role="alert">
+      <button type="button" className="close" aria-label="Close" onClick={props.alertContext.updateAlert.bind(this, false)}><span aria-hidden="true">&times;</span></button>
+      {props.alertContext.alert.message}
     </div>
   );
   } else {
@@ -13,4 +17,7 @@ function Alert(props) {
   }
 }
 
-export default Alert;
+// connect to context
+const ConnectedAlert = connectConsumers(Alert, {alert});
+
+export default ConnectedAlert;

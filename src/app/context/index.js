@@ -1,6 +1,7 @@
+import React from 'react';
+
+// consumers
 import { AlertConsumer } from './Alert';
-
-
 
 // -------------- CONTEXT FUNCTIONS -------------- //
 
@@ -19,7 +20,7 @@ export const hocContextConsumer = function(ComposedComponent, ContextConsumer, n
 }
 
 // function to add multiple contexts as props
-export const connectContext = function(Component, contexts = {}) {
+export const connectConsumers = function(Component, contexts = {}) {
   if (contexts.alert) {
     Component = hocContextConsumer(Component, AlertConsumer, "alertContext");
   }

@@ -5,6 +5,7 @@ import withAlert from '../hocAlert';
 
 // components
 import Loading from '../Loading';
+import Alert from '../Alert';
 
 function Main(props) {
   return (
@@ -18,7 +19,7 @@ function Main(props) {
               <h1 className="text-white">{props.title}</h1>
               <div className="card shadow my-4">
                 <div className="card-body p-5">
-                  {props.alert}
+                  <Alert />
                   {props.children}
                 </div>
               </div>
@@ -31,4 +32,4 @@ function Main(props) {
   );
 }
 
-export default withAlert(Main);
+export default Main;
