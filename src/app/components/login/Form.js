@@ -63,7 +63,7 @@ class UserForm extends React.Component {
             { this.state.errors.confirm ? <small className="invalid-feedback">{this.state.errors.confirm}</small> : false }
           </div>
           : false }
-        <div className="mt-5">
+        <div className="pt-3">
           { this.props.loading ? <button type="button" className="btn btn-primary btn-block" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {this.props.button.submitted}</button> :
           <button type="submit" className="btn btn-primary btn-block">{this.props.button.submit}</button> }
         </div>
