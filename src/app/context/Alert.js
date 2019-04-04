@@ -11,7 +11,7 @@ export const AlertProvider = class AlertProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      alert: { type: "success", message: "This is the alert message" }, // { type: "success", message: "This is the alert message" }
+      alert: false, // { type: "success", message: "This is the alert message" }
       updateAlert: (alert) => { this.setState({ alert: alert }) }
     };
   }

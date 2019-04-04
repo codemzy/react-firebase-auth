@@ -8,9 +8,12 @@ import withHead from '../hocHead';
 // context
 import { withContext } from '../../config/context';
 
+// context
+import { connectConsumers } from '../../context';
+
 //components
 import Main from './Main';
-import UserForm from './User_Form';
+import Form from './Form';
 
 function Reset(props) {
   
@@ -29,7 +32,7 @@ function Reset(props) {
   return (
     <Main title="Reset your password" footer={<small><p className="text-white">Remembered your password? <Link to={appPath + "/login"} className="text-white"><u>Log in</u></Link></p></small>}>
       <h6 className="text-muted">Nearly done! Please enter your email address and a new password.</h6>
-      <UserForm 
+      <Form 
         loading={loading} 
         handleSubmit={handleSubmit}
         email={true} password={{title: "New Password"}} confirm={{title: "Confirm New Password"}} 
@@ -38,7 +41,7 @@ function Reset(props) {
   );
 }
 
-export default withHead(
-  withContext(Reset, {alert}), 
-  "Reset Password"
-);
+// connect to context
+const ConnectedReset = connectConsumers(Reset, {alert});
+
+export default withHead(ConnectedReset, "Reset Password");
