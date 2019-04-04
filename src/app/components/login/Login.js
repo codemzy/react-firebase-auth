@@ -36,7 +36,7 @@ function Login(props) {
       <Form 
         loading={loading} 
         handleSubmit={handleSubmit}
-        email={true} password={true} 
+        email={true} password={{ help: <Link to={appPath + "/login/forgotten"}>Forgot your password?</Link> }} 
         button={{submit: "Log In", submitted: "Logging In"}} />
     </Main>
   );

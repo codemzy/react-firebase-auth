@@ -42,25 +42,26 @@ class UserForm extends React.Component {
     return (
       <form onSubmit={this._handleValidate.bind(this)} className="mt-4">
         { this.props.email ?
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" name="email" className={"form-control" + (this.state.errors.email ? " is-invalid" : "")} placeholder="you@youremail.com" value={this.state.email} onChange={this._handleChange.bind(this)} />
-          { this.state.errors.email ? <small className="invalid-feedback">{this.state.errors.email}</small> : false }
-        </div>
+          <div className="form-group">
+            <label>Email</label>
+            <input type="email" name="email" className={"form-control" + (this.state.errors.email ? " is-invalid" : "")} placeholder="you@youremail.com" value={this.state.email} onChange={this._handleChange.bind(this)} />
+            { this.state.errors.email ? <small className="invalid-feedback">{this.state.errors.email}</small> : false }
+          </div>
           : false }
         { this.props.password ?
-        <div className="form-group">
-          <label>{this.props.password.title || "Password"}</label>
-          <input type="password" name="password" className={"form-control" + (this.state.errors.password ? " is-invalid" : "")} value={this.state.password} onChange={this._handleChange.bind(this)} />
-          { this.state.errors.password ? <small className="invalid-feedback">{this.state.errors.password}</small> : false }
-        </div>
+          <div className="form-group">
+            <label>{this.props.password.title || "Password"}</label>
+            <input type="password" name="password" className={"form-control" + (this.state.errors.password ? " is-invalid" : "")} value={this.state.password} onChange={this._handleChange.bind(this)} />
+            { this.state.errors.password ? <small className="invalid-feedback">{this.state.errors.password}</small> : false }
+            { this.props.password.help ? <small className="form-text text-muted">{this.props.password.help}</small> : false }
+          </div>
           : false }
         { this.props.confirm ?
-        <div className="form-group">
-          <label>Confirm Password</label>
-          <input type="password" name="confirm" className={"form-control" + (this.state.errors.confirm ? " is-invalid" : "")} value={this.state.confirm} onChange={this._handleChange.bind(this)} />
-          { this.state.errors.confirm ? <small className="invalid-feedback">{this.state.errors.confirm}</small> : false }
-        </div>
+          <div className="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirm" className={"form-control" + (this.state.errors.confirm ? " is-invalid" : "")} value={this.state.confirm} onChange={this._handleChange.bind(this)} />
+            { this.state.errors.confirm ? <small className="invalid-feedback">{this.state.errors.confirm}</small> : false }
+          </div>
           : false }
         <div className="mt-5">
           { this.props.loading ? <button type="button" className="btn btn-primary btn-block" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> {this.props.button.submitted}</button> :
