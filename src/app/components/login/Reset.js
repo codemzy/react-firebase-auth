@@ -6,10 +6,7 @@ import { appPath } from '../../config/settings';
 import withHead from '../hocHead';
 
 // context
-import { withContext } from '../../config/context';
-
-// context
-import { connectConsumers } from '../../context';
+import { getContext } from '../../context';
 
 //components
 import Main from './Main';
@@ -41,7 +38,6 @@ function Reset(props) {
   );
 }
 
-// connect to context
-const ConnectedReset = connectConsumers(Reset, {alert});
-
-export default withHead(ConnectedReset, "Reset Password");
+export default getContext({
+  alert
+})(withHead(Reset, "Reset Password"));

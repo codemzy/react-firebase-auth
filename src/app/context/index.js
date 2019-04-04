@@ -29,3 +29,15 @@ export const connectConsumers = function(Component, contexts = {}) {
   }
   return Component;
 }
+
+export const getContext = function(contexts = {}) {
+  return function(Component) {
+    if (contexts.alert) {
+      Component = hocContextConsumer(Component, AlertConsumer, "alertContext");
+    }
+    if (contexts.user) {
+      // Component = hocContextConsumer(Component, UserContext.Consumer, "userContext");
+    }
+    return Component;
+  }
+}
