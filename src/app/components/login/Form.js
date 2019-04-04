@@ -3,7 +3,7 @@ import React from 'react';
 // validate
 import { checkEmail, checkPassword, checkMatch, checkNoMatch } from '../../utils/validate';
 
-class UserForm extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,4 +72,4 @@ class UserForm extends React.Component {
   }
 }
 
-export default UserForm;
+export default Form;
