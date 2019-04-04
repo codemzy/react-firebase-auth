@@ -5,7 +5,7 @@ import {connectConsumers} from '../context';
 
 // alert component
 function Alert(props) {
-  if (props.alertContext) {
+  if (props.alertContext.alert) {
   return (
     <div className={"alert alert-dismissible alert-" + props.alertContext.alert.type} role="alert">
       <button type="button" className="close" aria-label="Close" onClick={props.alertContext.updateAlert.bind(this, false)}><span aria-hidden="true">&times;</span></button>
