@@ -6,6 +6,8 @@ import routes from './config/router';
 
 // hoc user authentication
 import withAuthentication from './components/auth/hocAuthentication';
+// hoc alert context
+import withAlert from './components/hocAlert';
 
 // App
 const App = withAuthentication(function App() {
