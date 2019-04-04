@@ -15,7 +15,6 @@ export const AlertProvider = class AlertProvider extends React.Component {
       updateAlert: (alert) => { this.setState({ alert: alert }) }
     };
   }
-
   render() { 
      return (
        <AlertContext.Provider value={{ alert: this.state.alert, updateAlert: this.state.updateAlert }}>
@@ -23,8 +22,7 @@ export const AlertProvider = class AlertProvider extends React.Component {
        </AlertContext.Provider>
      );
   }
-
-} 
+};
 
 // alert context consumer
-export const AlertConsumer = AlertContext.Consumer
+export const AlertConsumer = AlertContext.Consumer;
