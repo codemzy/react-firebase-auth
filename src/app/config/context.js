@@ -1,5 +1,7 @@
 import React from 'react';
 
+// TO BE REMOVED WHEN CONTEXT ALL REFACTORED
+
 // -------------- CONTEXT -------------- //
 
 // user context
