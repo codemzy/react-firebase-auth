@@ -1,7 +1,7 @@
 import React from 'react';
 
 // context
-import {connectConsumers} from '../context';
+import {getContext} from '../context';
 
 // alert component
 function Alert(props) {
@@ -17,7 +17,6 @@ function Alert(props) {
   }
 }
 
-// connect to context
-const ConnectedAlert = connectConsumers(Alert, {alert});
-
-export default ConnectedAlert;
+export default getContext({
+  alert
+})(Alert);

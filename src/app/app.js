@@ -2,24 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // app routes
-import routes from './config/router';
+import routes from './router';
 
-// hoc user authentication
-import withAuthentication from './components/auth/hocAuthentication';
-// hoc alert context
+// context providers
 import { AlertProvider } from './context/Alert';
+import { UserProvider } from './context/User';
 
 // App
-const App = withAuthentication(function App() {
- return routes; 
-});
-
-// Add Context
-const AppContext = () => (
-  <AlertProvider>
-    <App />
-  </AlertProvider>
+const App = () => (
+  <UserProvider>
+    <AlertProvider>
+      {routes}
+    </AlertProvider>
+  </UserProvider>
 );
 
 // render App
-ReactDOM.render(<AppContext />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

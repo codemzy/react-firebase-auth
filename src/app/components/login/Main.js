@@ -1,8 +1,5 @@
 import React from 'react';
 
-// hoc
-import withAlert from '../hocAlert';
-
 // components
 import Loading from '../Loading';
 import Alert from '../Alert';

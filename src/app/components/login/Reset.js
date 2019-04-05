@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { appPath } from '../../config/settings';
+import * as paths from '../../router/paths';
 
 // hoc
 import withHead from '../hocHead';
 
 // context
 import { getContext } from '../../context';
+
+// api calls
+import { checkResetCode, resetPassword, userLogin } from '../../api/auth';
 
 //components
 import Main from './Main';
@@ -20,14 +23,19 @@ function Reset(props) {
   // submit the form
   const handleSubmit = function(form) {
     setLoading(true);
-    setTimeout(function() { 
+    let code = props.match.params.code;
+    checkResetCode(code).then(function(email) {
+      return resetPassword(code, form.password).then(function(resp) {
+        return userLogin(email, form.password);
+      });
+    }).catch((error) => {
       setLoading(false);
-      props.alertContext.updateAlert({ type: "danger", message: "Testing an error" });
-    }, 1000);
+      props.alertContext.updateAlert({ type: "danger", message: error.message });
+    });
   }
   
   return (
-    <Main title="Reset your password" footer={<small><p className="text-white">Remembered your password? <Link to={appPath + "/login"} className="text-white"><u>Log in</u></Link></p></small>}>
+    <Main title="Reset your password" footer={<small><p className="text-white">Remembered your password? <Link to={paths.logIn} className="text-white"><u>Log in</u></Link></p></small>}>
       <h6 className="text-muted">Nearly done! Please enter your email address and a new password.</h6>
       <Form 
         loading={loading} 

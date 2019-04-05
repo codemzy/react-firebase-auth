@@ -33,3 +33,13 @@ export const userLogout = function() {
 export const forgotPassword = function(email) {
   return firebaseAuth.sendPasswordResetEmail(email);
 };
+
+// verify reset password code
+export const checkResetCode = function(code) {
+  return firebaseAuth.verifyPasswordResetCode(code);
+}
+
+// reset password
+export const resetPassword = function(code, password) {
+  return firebaseAuth.confirmPasswordReset(code, password);
+}

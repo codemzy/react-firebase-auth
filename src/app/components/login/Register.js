@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { appPath } from '../../config/settings';
+import * as paths from '../../router/paths';
 
 // hoc
 import withHead from '../hocHead';
@@ -30,7 +30,7 @@ function Register(props) {
   }
   
   return (
-    <Main title="Register" footer={<small><p className="text-white">Already have an account? <Link to={appPath + "/login"} className="text-white"><u>Log In</u></Link></p></small>}>
+    <Main title="Register" footer={<small><p className="text-white">Already have an account? <Link to={paths.logIn} className="text-white"><u>Log In</u></Link></p></small>}>
       <h6 className="text-muted">Sign up with your email address and password.</h6>
       <Form 
         loading={loading} 
