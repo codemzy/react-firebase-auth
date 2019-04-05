@@ -1,7 +1,7 @@
 import { appPath } from '../config/settings';
 
 // paths for the router
-export const dashboard = appPath + "/";
+export const home = appPath + "/";
 export const account = appPath + "/account";
 export const page = appPath + "/page";
 export const logOut = appPath + "/logout";

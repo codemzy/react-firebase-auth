@@ -6,7 +6,7 @@ import * as paths from './paths';
 
 // hoc
 import HeadHOC from '../components/hocHead';
-import withAuthorisation from '../components/auth/hocAuthorisation';
+import withAuthorisation from './hocAuthorisation';
 
 // components
 import Login from '../components/login/Login';
@@ -23,7 +23,7 @@ import Page from '../components/feature/Page';
 const routes = (
   <Router>
     <div>
-      <Route exact path={paths.dashboard} component={withAuthorisation(Dashboard, true)} />
+      <Route exact path={paths.home} component={withAuthorisation(Dashboard, true)} />
       <Route exact path={paths.account} component={withAuthorisation(Account, true)} />
       <Route path={paths.page + "/:num"} render={({ props, match }) => withAuthorisation(Page, true)({...props, title: "Page " + match.params.num})}/>
       <Route path={paths.logOut} component={withAuthorisation(Logout, true)} />
