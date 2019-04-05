@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // app routes
-import routes from './config/router';
+import routes from './router';
 
 // context providers
 import { AlertProvider } from './context/Alert';

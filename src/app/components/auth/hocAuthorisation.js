@@ -2,14 +2,14 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { appPath } from '../../config/settings';
 
-// context for user state
-import { UserContext } from '../../config/context';
+// context
+import { UserConsumer } from '../../context/User';
 
 // checks if user is authorised to view the component
 const withAuthorisation = (ComposedComponent, authRequired, roleRequired) => { 
   function Authorisation(props) {
     return (
-      <UserContext.Consumer>
+      <UserConsumer>
         {function(context) {
           if (authRequired && !context.user) { // must be logged in to view
             return <Redirect to={appPath + "/login"} />;
@@ -19,7 +19,7 @@ const withAuthorisation = (ComposedComponent, authRequired, roleRequired) => {
             return <ComposedComponent {...props} />;
           }
         }}
-      </UserContext.Consumer>
+      </UserConsumer>
     );
   }
   return Authorisation;
