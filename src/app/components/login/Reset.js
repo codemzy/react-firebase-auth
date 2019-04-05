@@ -8,6 +8,9 @@ import withHead from '../hocHead';
 // context
 import { getContext } from '../../context';
 
+// api calls
+import { checkResetCode, resetPassword, userLogin } from '../../api/auth';
+
 //components
 import Main from './Main';
 import Form from './Form';
@@ -20,10 +23,15 @@ function Reset(props) {
   // submit the form
   const handleSubmit = function(form) {
     setLoading(true);
-    setTimeout(function() { 
+    let code = props.match.params.code;
+    checkResetCode(code).then(function(email) {
+      return resetPassword(code, form.password).then(function(resp) {
+        return userLogin(email, form.password);
+      });
+    }).catch((error) => {
       setLoading(false);
-      props.alertContext.updateAlert({ type: "danger", message: "Testing an error" });
-    }, 1000);
+      props.alertContext.updateAlert({ type: "danger", message: error.message });
+    });
   }
   
   return (
