@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { appPath } from '../../config/settings';
+import * as paths from '../../router/paths';
 
 // hoc
 import withHead from '../hocHead';
@@ -27,7 +27,7 @@ function Reset(props) {
   }
   
   return (
-    <Main title="Reset your password" footer={<small><p className="text-white">Remembered your password? <Link to={appPath + "/login"} className="text-white"><u>Log in</u></Link></p></small>}>
+    <Main title="Reset your password" footer={<small><p className="text-white">Remembered your password? <Link to={paths.logIn} className="text-white"><u>Log in</u></Link></p></small>}>
       <h6 className="text-muted">Nearly done! Please enter your email address and a new password.</h6>
       <Form 
         loading={loading} 
