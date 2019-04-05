@@ -2,6 +2,7 @@ import React from 'react';
 
 // consumers
 import { AlertConsumer } from './Alert';
+import { UserConsumer } from './User';
 
 // -------------- CONTEXT FUNCTIONS -------------- //
 
@@ -20,23 +21,13 @@ export const hocContextConsumer = function(ComposedComponent, ContextConsumer, n
 }
 
 // function to add multiple contexts as props
-export const connectConsumers = function(Component, contexts = {}) {
-  if (contexts.alert) {
-    Component = hocContextConsumer(Component, AlertConsumer, "alertContext");
-  }
-  if (contexts.user) {
-    // Component = hocContextConsumer(Component, UserContext.Consumer, "userContext");
-  }
-  return Component;
-}
-
 export const getContext = function(contexts = {}) {
   return function(Component) {
     if (contexts.alert) {
       Component = hocContextConsumer(Component, AlertConsumer, "alertContext");
     }
     if (contexts.user) {
-      // Component = hocContextConsumer(Component, UserContext.Consumer, "userContext");
+      Component = hocContextConsumer(Component, UserConsumer, "userContext");
     }
     return Component;
   }

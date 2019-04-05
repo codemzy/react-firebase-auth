@@ -7,7 +7,7 @@ import { checkAuth } from '../api/auth';
 import Main from '../components/login/Main';
 
 // user context
-export const UserContext = React.createContext({
+const UserContext = React.createContext({
   user: false,
   updateUser: () => {},
 });
