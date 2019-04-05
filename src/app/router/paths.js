@@ -9,3 +9,4 @@ export const logIn = appPath + "/login";
 export const forgotPw = appPath + "/login/forgotten";
 export const resetPw = appPath + "/login/reset";
 export const register = appPath + "/register";
+export const auth = appPath + "/auth"; // for firebase auth actions
