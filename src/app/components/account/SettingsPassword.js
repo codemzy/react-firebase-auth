@@ -6,6 +6,9 @@ import { getContext } from '../../context';
 // validate
 import { isRequired, checkPassword, checkMatch, checkNoMatch } from '../../utils/validate';
 
+// api calls
+import { changePassword } from '../../api/auth';
+
 class Password extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +44,14 @@ class Password extends React.Component {
       });
       // if no errors then handle the form
       if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) {
-        this.props.handleSubmit({ email: this.state.email, password: this.state.password, newPassword: this.state.newPassword });
+        this.setState({ loading: true });
+        changePassword(this.props.userContext.user.email, this.state.password, this.state.newPassword).then((result) => {
+          this.props.alertContext.updateAlert({ type: "success", message: "Your password has been updated." });
+        }).catch((error) => {
+          this.props.alertContext.updateAlert({ type: "danger", message: error.message });
+        }).finally(() => {
+          this.setState({ loading: false });
+        });
       }
     }
   }
@@ -87,5 +97,6 @@ class Password extends React.Component {
 }
 
 export default getContext({ 
-  user: true 
+  user: true,
+  alert: true
 })(Password);

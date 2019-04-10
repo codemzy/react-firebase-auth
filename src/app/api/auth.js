@@ -1,4 +1,5 @@
-import {firebaseAuth} from '../config/firebase';
+import firebase from 'firebase/app';
+import {firebaseAuth, currentUser} from '../config/firebase';
 
 // check if use is authenticated (logged in)
 export const checkAuth = function(callback) {
@@ -20,8 +21,8 @@ export const userRegister = function(email, password) {
 // log in a user
 export const userLogin = function(email, password) {
   return firebaseAuth.signInWithEmailAndPassword(email, password).catch(function(error) {
-      throw new Error(error.message);
-    });
+    throw new Error(error.message);
+  });
 };
 
 // log out a user
@@ -42,4 +43,23 @@ export const checkResetCode = function(code) {
 // reset password
 export const resetPassword = function(code, password) {
   return firebaseAuth.confirmPasswordReset(code, password);
+}
+
+// USER API CALLS
+
+// re-auth a user
+const reAuthenticate = function(email, password) {
+  var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+  return currentUser.reauthenticateAndRetrieveDataWithCredential(credential).catch(function(error) {
+    throw new Error(error.message);
+  });
+}
+
+// change password
+export const changePassword = function(email, password, newPassword) {
+  return reAuthenticate(email, password).then(function(response) {
+    return currentUser.updatePassword(newPassword).catch(function(error) {
+      throw new Error(error.message);
+    });
+  });
 }
