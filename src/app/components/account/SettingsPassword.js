@@ -22,6 +22,10 @@ class Password extends React.Component {
     const name = event.target.name;
     this.setState({[name]: event.target.value});
   }
+  
+  _handleReset() {
+    this.setState({ newPassword: "", confirm: "", password: "", errors: {} });
+  }
 
   _handleValidate(event) {
     event.preventDefault();
@@ -30,7 +34,7 @@ class Password extends React.Component {
       const ERRORS = { ...this.state.errors,
                       password: isRequired(this.state.password, "You need to enter your current password"),
                       newPassword: checkPassword(this.state.newPassword) || checkNoMatch(this.state.newPassword, this.props.userContext.user.email, "Your password can't be your email address"),
-                      confirm: this.props.confirm ? checkMatch(this.state.confirm, this.state.newPassword, "Your password confirmation does not match") : false
+                      confirm: checkMatch(this.state.confirm, this.state.newPassword, "Your password confirmation does not match")
                      };
       this.setState({
           errors: ERRORS
@@ -44,32 +48,38 @@ class Password extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this._handleValidate.bind(this)} className="mt-4">
-        <h2>Password</h2>
-        <div className="form-group">
-          <label>New Password</label>
-          <p className="small">You can enter a new password to change your password.</p>
-          <input type="password" name="newPassword" className={"form-control" + (this.state.errors.newPassword ? " is-invalid" : "")} value={this.state.newPassword} onChange={this._handleChange.bind(this)} />
-          { this.state.errors.newPassword ? <small className="invalid-feedback">{this.state.errors.newPassword}</small> : false }
-        </div>
+      <form onSubmit={this._handleValidate.bind(this)} className="mt-4 row">
+        <div className="col-md-6">
+          <h2>Password</h2>
+          <div className="form-group">
+            <label>New Password</label>
+            <small className="form-text mt-n2 mb-2">You can enter a new password to change your password.</small>
+            <input type="password" name="newPassword" className={"form-control" + (this.state.errors.newPassword ? " is-invalid" : "")} value={this.state.newPassword} onChange={this._handleChange.bind(this)} />
+            { this.state.errors.newPassword ? <small className="invalid-feedback">{this.state.errors.newPassword}</small> : false }
+          </div>
+          { this.state.newPassword ?
+            <span>
+              <div className="form-group">
+                <label>Confirm New Password</label>
+                <input type="password" name="confirm" className={"form-control" + (this.state.errors.confirm ? " is-invalid" : "")} value={this.state.confirm} onChange={this._handleChange.bind(this)} />
+                { this.state.errors.confirm ? <small className="invalid-feedback">{this.state.errors.confirm}</small> : false }
+              </div>
+              <div className="form-group">
+                <label>Old Password</label>
+                <small className="form-text mt-n2 mb-2">Please enter your password and click 'Change Password' to confirm changes.</small>
+                <input type="password" name="password" className={"form-control" + (this.state.errors.password ? " is-invalid" : "")} value={this.state.password} onChange={this._handleChange.bind(this)} />
+                { this.state.errors.password ? <small className="invalid-feedback mb-n4">{this.state.errors.password}</small> : false }
+              </div>
+            </span>
+              : false }
+          </div>
         { this.state.newPassword ?
-          <span>
-            <div className="form-group">
-              <label>Confirm New Password</label>
-              <input type="password" name="confirm" className={"form-control" + (this.state.errors.confirm ? " is-invalid" : "")} value={this.state.confirm} onChange={this._handleChange.bind(this)} />
-              { this.state.errors.confirm ? <small className="invalid-feedback">{this.state.errors.confirm}</small> : false }
+          <div className="col-md-6 align-self-end">
+            <div className="form-group pt-3">
+              { this.state.loading ? <button type="button" className="btn btn-dark" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Changing Password</button> :
+              <span><button type="button" onClick={this._handleReset.bind(this)} className="btn btn-outline-danger">Cancel</button> <button type="submit" className="btn btn-dark">Change Password</button></span> }
             </div>
-            <div className="form-group">
-              <label>Old Password</label>
-              <p className="small">Please enter your password and click 'Change Password' to confirm changes.</p>
-              <input type="password" name="password" className={"form-control" + (this.state.errors.password ? " is-invalid" : "")} value={this.state.password} onChange={this._handleChange.bind(this)} />
-              { this.state.errors.password ? <small className="invalid-feedback">{this.state.errors.password}</small> : false }
-            </div>
-            <div className="pt-3">
-              { this.state.loading ? <button type="button" className="btn btn-primary btn-block" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Changing Password</button> :
-              <button type="submit" className="btn btn-primary btn-block">Change Password</button> }
-            </div>
-          </span>
+          </div>
           : false }
       </form>
     );
