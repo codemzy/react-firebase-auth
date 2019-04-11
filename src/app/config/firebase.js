@@ -14,4 +14,3 @@ firebase.initializeApp(config);
 console.log("Started firebase");
 
 export const firebaseAuth = firebase.auth();
-export const currentUser = firebase.auth().currentUser;

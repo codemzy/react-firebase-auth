@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import {firebaseAuth, currentUser} from '../config/firebase';
+import {firebaseAuth} from '../config/firebase';
 
 // check if use is authenticated (logged in)
 export const checkAuth = function(callback) {
@@ -50,7 +50,7 @@ export const resetPassword = function(code, password) {
 // re-auth a user
 const reAuthenticate = function(email, password) {
   var credential = firebase.auth.EmailAuthProvider.credential(email, password);
-  return currentUser.reauthenticateAndRetrieveDataWithCredential(credential).catch(function(error) {
+  return firebaseAuth.currentUser.reauthenticateAndRetrieveDataWithCredential(credential).catch(function(error) {
     throw new Error(error.message);
   });
 }
@@ -58,7 +58,7 @@ const reAuthenticate = function(email, password) {
 // change password
 export const changePassword = function(email, password, newPassword) {
   return reAuthenticate(email, password).then(function(response) {
-    return currentUser.updatePassword(newPassword).catch(function(error) {
+    return firebaseAuth.currentUser.updatePassword(newPassword).catch(function(error) {
       throw new Error(error.message);
     });
   });
