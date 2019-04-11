@@ -91,3 +91,8 @@ export const changeEmail = function(password, newEmail) {
     });
   });
 }
+
+// send verification email
+export const sendVerification = function() {
+  return firebaseAuth.currentUser.sendEmailVerification();
+}

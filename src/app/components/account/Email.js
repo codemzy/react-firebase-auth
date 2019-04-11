@@ -24,7 +24,7 @@ class Email extends React.Component {
     if (this.state.email === this.props.userContext.user.email) {
       return this.props.userContext.user.emailVerified ?
         <small className="form-text text-success">✓ email address is verified</small> :
-        <small className="form-text text-warning">For better security and account recovery, please verify your email address</small> ;
+        <small className="form-text text-secondary">For better security and account recovery, please <a href="#" class="text-success">verify your email address</a></small> ;
     }
   }
 
