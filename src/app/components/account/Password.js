@@ -45,7 +45,7 @@ class Password extends React.Component {
       // if no errors then handle the form
       if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) {
         this.setState({ loading: true });
-        changePassword(this.props.userContext.user.email, this.state.password, this.state.newPassword).then((result) => {
+        changePassword(this.state.password, this.state.newPassword).then((result) => {
           this._handleReset();
           this.props.alertContext.updateAlert({ type: "success", message: "Your password has been updated." });
         }).catch((error) => {

@@ -48,17 +48,26 @@ export const resetPassword = function(code, password) {
 // USER API CALLS
 
 // re-auth a user
-const reAuthenticate = function(email, password) {
-  var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+const reAuthenticate = function(password) {
+  var credential = firebase.auth.EmailAuthProvider.credential(firebaseAuth.currentUser.email, password);
   return firebaseAuth.currentUser.reauthenticateAndRetrieveDataWithCredential(credential).catch(function(error) {
     throw new Error(error.message);
   });
 }
 
 // change password
-export const changePassword = function(email, password, newPassword) {
-  return reAuthenticate(email, password).then(function(response) {
+export const changePassword = function(password, newPassword) {
+  return reAuthenticate(password).then(function(response) {
     return firebaseAuth.currentUser.updatePassword(newPassword).catch(function(error) {
+      throw new Error(error.message);
+    });
+  });
+}
+
+// change email
+export const changeEmail = function(password, newEmail) {
+  return reAuthenticate(password).then(function(response) {
+    return firebaseAuth.currentUser.updateEmail(newEmail).catch(function(error) {
       throw new Error(error.message);
     });
   });

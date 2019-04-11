@@ -8,7 +8,7 @@ import withHead from '../hocHead';
 //components
 import Main from '../Main';
 import Details from './Account_Details';
-import Password from './SettingsPassword';
+import Password from './Password';
 
 function Account(props) {
   return (
