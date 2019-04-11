@@ -37,8 +37,6 @@ export const forgotPassword = function(email) {
 
 // ----------- ACTION CODE HANDLERS ----------- //
 
-//// PASSWORD RESET
-
 // verify reset password code
 export const checkResetCode = function(code) {
   return firebaseAuth.verifyPasswordResetCode(code);
@@ -49,8 +47,7 @@ export const resetPassword = function(code, password) {
   return firebaseAuth.confirmPasswordReset(code, password);
 }
 
-//// EMAIL CHANGE REVOCATION
-
+// email change revocation
 export const restoreEmail = function(code) {
   return firebaseAuth.checkActionCode(code).then(function(info) {
     return firebaseAuth.applyActionCode(code).then(function(response) {
@@ -59,6 +56,11 @@ export const restoreEmail = function(code) {
   }).catch(function(error) {
     throw new Error(error.message);
   });
+}
+
+// verify email adress
+export const verifyEmail = function(code) {
+  return firebaseAuth.applyActionCode(code);
 }
 
 

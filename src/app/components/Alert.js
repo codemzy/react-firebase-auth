@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
 
 // context
 import {getContext} from '../context';
 
 // alert component
 function Alert(props) {
+  
+  useEffect(() => {
+    return () => { props.alertContext.updateAlert(false) }; // returns function to run on dismount
+  }, []);
+  
   if (props.alertContext.alert) {
     return (
       <div className={"alert alert-dismissible alert-" + props.alertContext.alert.type} role="alert">

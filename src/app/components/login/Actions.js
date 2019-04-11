@@ -6,7 +6,7 @@ import * as paths from '../../router/paths';
 import { getContext } from '../../context';
 
 // api calls
-import { restoreEmail } from '../../api/auth';
+import { restoreEmail, verifyEmail } from '../../api/auth';
 
 //components
 import Main from './Main';
@@ -23,17 +23,25 @@ function Actions(props) {
         return props.history.push(paths.resetPw  + "/" + code);
       } else if (mode === "recoverEmail" ) {
         restoreEmail(code).then(function(email) {
-          props.alertContext.updateAlert({ type: "success", message: "We have restored your " + email + " email address." });
+          props.alertContext.updateAlert({ type: "success", message: "We have restored your " + email + " email address. Please log in." });
         }).catch(function(error) {
-          props.alertContext.updateAlert({ type: "danger", message: "There was a problem with your recovery code." });
+          props.alertContext.updateAlert({ type: "danger", message: "Sorry, there was a problem with your email recovery." });
         }).finally(() => {
-          return props.history.push(paths.home);
+          return props.history.push(paths.logOut);
         });
       } else if (mode === "verifyEmail") {
-        console.log("need to handle this");
+        verifyEmail(code).then(function(email) {
+          props.alertContext.updateAlert({ type: "success", message: "Your email address has been verified!" });
+        }).catch(function(error) {
+          props.alertContext.updateAlert({ type: "danger", message: "Sorry, there was a problem. Please try to verify your email address again." });
+        }).finally(() => {
+          return props.history.push(paths.account);
+        });
       } else {
         return props.history.push(paths.home); // if no match then go home
       }
+    } else {
+      return props.history.push(paths.home); // if no match then go home
     }
   }, []); // empty array tells useEffect to only run once on mount
   
