@@ -35,6 +35,10 @@ export const forgotPassword = function(email) {
   return firebaseAuth.sendPasswordResetEmail(email);
 };
 
+// ----------- ACTION CODE HANDLERS ----------- //
+
+//// PASSWORD RESET
+
 // verify reset password code
 export const checkResetCode = function(code) {
   return firebaseAuth.verifyPasswordResetCode(code);
@@ -45,7 +49,20 @@ export const resetPassword = function(code, password) {
   return firebaseAuth.confirmPasswordReset(code, password);
 }
 
-// USER API CALLS
+//// EMAIL CHANGE REVOCATION
+
+export const restoreEmail = function(code) {
+  return firebaseAuth.checkActionCode(code).then(function(info) {
+    return firebaseAuth.applyActionCode(code).then(function(response) {
+      return info['data']['email']; // the restored email address
+    });
+  }).catch(function(error) {
+    throw new Error(error.message);
+  });
+}
+
+
+// ----------- USER API CALLS ----------- //
 
 // re-auth a user
 const reAuthenticate = function(password) {

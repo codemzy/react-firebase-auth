@@ -19,6 +19,14 @@ class Email extends React.Component {
       errors: {}
     };
   }
+  
+  _checkVerified() {
+    if (this.state.email === this.props.userContext.user.email) {
+      return this.props.userContext.user.emailVerified ?
+        <small className="form-text text-success">✓ email address is verified</small> :
+        <small className="form-text text-warning">For better security and account recovery, please verify your email address</small> ;
+    }
+  }
 
   _handleChange(event) {
     const name = event.target.name;
@@ -29,7 +37,7 @@ class Email extends React.Component {
     this.setState({ email: this.props.userContext.user.email, password: "", errors: {} });
   }
 
-  _handleValidate(event) {
+  _handleSubmit(event) {
     event.preventDefault();
     if (!this.state.loading) { // only if not already waiting for a response
       // validate data
@@ -57,7 +65,7 @@ class Email extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this._handleValidate.bind(this)} className="mt-4 row">
+      <form onSubmit={this._handleSubmit.bind(this)} className="mt-4 row">
         <div className="col-md-6">
           <h2>Email</h2>
           <div className="form-group">
@@ -65,6 +73,7 @@ class Email extends React.Component {
             <small className="form-text mt-n2 mb-2">You can enter a new email address if you want to change it.</small>
             <input type="email" name="email" className={"form-control" + (this.state.errors.email ? " is-invalid" : "")} value={this.state.email} onChange={this._handleChange.bind(this)} />
             { this.state.errors.email ? <small className="invalid-feedback">{this.state.errors.email}</small> : false }
+            { this._checkVerified() }
           </div>
           { this.state.email !== this.props.userContext.user.email ?
             <span>
