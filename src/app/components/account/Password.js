@@ -43,7 +43,7 @@ class Password extends React.Component {
           errors: ERRORS
       });
       // if no errors then handle the form
-      if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) {
+      if (!ERRORS.newPassword && !ERRORS.password && !ERRORS.confirm) {
         this.setState({ loading: true });
         changePassword(this.state.password, this.state.newPassword).then((result) => {
           this._handleReset();
