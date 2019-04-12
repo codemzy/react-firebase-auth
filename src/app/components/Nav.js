@@ -1,18 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 // route paths
 import * as paths from '../router/paths';
 
-
+// navbar component
 function Nav(props) {
   
   // state hook
   const [show, setShow] = useState(false);
   
-  const handleDropdown = function(e) {
+  // click listeners for hiding dropdown
+  useEffect(() => {
+    // show no dropdown
+    function hideAccount() {
+      setShow(false);
+    };
+    // add or remove event listener
+    if (show) {
+      window.addEventListener("click", hideAccount);
+    } else {
+      window.removeEventListener("click", hideAccount);
+    }
+    // cleanup
+    return function removeListener() {
+      window.removeEventListener("click", hideAccount);
+    }
+  }, [show]); // only run if show state changes
+
+  // toggle account dropdown
+  const accountDropdown = function(e) {
     e.preventDefault();
-    setShow(!show); // toggle on and off
+    !show ? setShow("account") : setShow(false);
   }
   
   return (
@@ -26,9 +45,9 @@ function Nav(props) {
                     <Link to={paths.page + "/2"} className="nav-item nav-link">Page2</Link>
                 </div>
                 <div className="navbar-nav my-2 my-md-0 font-weight-bold">
-                  <li className={"nav-item dropdown" + (show ? " show" : "") }>
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" onClick={handleDropdown} data-toggle="dropdown" aria-haspopup="true" aria-expanded={show ? "true" : "false"}>Account</a>
-                    <div className={"dropdown-menu dropdown-menu-right" + (show ? " show" : "") } aria-labelledby="navbarDropdown">
+                  <li className={"nav-item dropdown" + (show === "account" ? " show" : "") }>
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" onClick={accountDropdown} data-toggle="dropdown" aria-haspopup="true" aria-expanded={show === "account" ? "true" : "false"}>Account</a>
+                    <div className={"dropdown-menu dropdown-menu-right" + (show === "account" ? " show" : "") } aria-labelledby="navbarDropdown">
                       <Link to={paths.account}  className="dropdown-item">Settings</Link>
                       <div className="dropdown-divider"></div>
                       <Link to={paths.logOut}  className="dropdown-item">Log Out</Link>
@@ -43,6 +62,3 @@ function Nav(props) {
 }
 
 export default Nav;
-
-
-// <Link to={paths.account}  className="nav-item nav-link">Account</Link>

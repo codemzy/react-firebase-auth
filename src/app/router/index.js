@@ -7,7 +7,6 @@ import * as paths from './paths';
 // hoc
 import HeadHOC from '../components/hocHead';
 import withAuthorisation from './hocAuthorisation';
-import authActions from './authActions';
 
 // components
 import Login from '../components/login/Login';
