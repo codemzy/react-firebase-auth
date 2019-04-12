@@ -7,13 +7,14 @@ import { getContext } from '../../context';
 import { isRequired, checkEmail, checkNoMatch } from '../../utils/validate';
 
 // api calls
-import { changeEmail } from '../../api/auth';
+import { changeEmail, sendVerification } from '../../api/auth';
 
 class Email extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
+      verifying: false,
       email: this.props.userContext.user.email,
       password: '',
       errors: {}
@@ -22,10 +23,23 @@ class Email extends React.Component {
   
   _checkVerified() {
     if (this.state.email === this.props.userContext.user.email) {
+      if (this.state.verifying && !this.props.userContext.user.emailVerified) {
+        return <small className="form-text text-secondary">Email verification pending (please check your emails)</small>
+      }
       return this.props.userContext.user.emailVerified ?
         <small className="form-text text-success">✓ email address is verified</small> :
-        <small className="form-text text-secondary">For better security and account recovery, please <a href="#" class="text-success">verify your email address</a></small> ;
+        <small className="form-text text-secondary">For better security and account recovery, please <a href="#" className="text-success" onClick={this._handleVerify.bind(this)}>verify your email address</a></small> ;
     }
+  }
+  
+  _handleVerify(event) {
+    event.preventDefault();
+    sendVerification().then(() => {
+      this.props.alertContext.updateAlert({ type: "success", message: "Email sent. Please check your emails for verification instructions." });
+      this.setState({ verifying: true });
+    }).catch((error) => {
+      this.props.alertContext.updateAlert({ type: "danger", message: "Oops. Sorry, there was a problem sending the verification email." });
+    });
   }
 
   _handleChange(event) {

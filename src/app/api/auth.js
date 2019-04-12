@@ -58,9 +58,11 @@ export const restoreEmail = function(code) {
   });
 }
 
-// verify email adress
+// verify email address
 export const verifyEmail = function(code) {
-  return firebaseAuth.applyActionCode(code);
+  return firebaseAuth.applyActionCode(code).then(function(response) {
+    return firebaseAuth.currentUser.reload(); // reload user to show new verification status
+  });
 }
 
 
