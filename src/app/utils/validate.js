@@ -5,8 +5,8 @@ import validator from 'validator';
   // (proper validation needs to take place on backend)
 
 // is a required input
-export const isRequired = function(text) {
-  return validator.isEmpty(text) ? "This information is required" : false;
+export const isRequired = function(text, error) {
+  return validator.isEmpty(text) ? error || "This information is required" : false;
 }
 
 // checks exists and is valid email

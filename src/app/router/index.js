@@ -7,11 +7,11 @@ import * as paths from './paths';
 // hoc
 import HeadHOC from '../components/hocHead';
 import withAuthorisation from './hocAuthorisation';
-import authActions from './authActions';
 
 // components
 import Login from '../components/login/Login';
 import Forgot from '../components/login/Forgot';
+import Actions from '../components/login/Actions';
 import Reset from '../components/login/Reset';
 import Register from '../components/login/Register';
 import Dashboard from '../components/account/Dashboard';
@@ -32,7 +32,7 @@ const routes = (
       <Route path={paths.forgotPw} component={withAuthorisation(Forgot, false)} />
       <Route path={paths.resetPw + "/:code"} component={withAuthorisation(Reset, false)} />
       <Route path={paths.register} component={withAuthorisation(Register, false)} />
-      <Route path={paths.auth} component={authActions} />
+      <Route path={paths.auth} component={Actions} />
     </div>
   </Router>
 );

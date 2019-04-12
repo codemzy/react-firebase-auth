@@ -1,11 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 // route paths
 import * as paths from '../router/paths';
 
-
+// navbar component
 function Nav(props) {
+  
+  // state hook
+  const [show, setShow] = useState(false);
+  
+  // click listeners for hiding dropdown
+  useEffect(() => {
+    // show no dropdown
+    function hideAccount() {
+      setShow(false);
+    };
+    // add or remove event listener
+    if (show) {
+      window.addEventListener("click", hideAccount);
+    } else {
+      window.removeEventListener("click", hideAccount);
+    }
+    // cleanup
+    return function removeListener() {
+      window.removeEventListener("click", hideAccount);
+    }
+  }, [show]); // only run if show state changes
+
+  // toggle account dropdown
+  const accountDropdown = function(e) {
+    e.preventDefault();
+    !show ? setShow("account") : setShow(false);
+  }
+  
   return (
     <div className="border-bottom bg-white mb-3">
       <div className="container">
@@ -17,7 +45,14 @@ function Nav(props) {
                     <Link to={paths.page + "/2"} className="nav-item nav-link">Page2</Link>
                 </div>
                 <div className="navbar-nav my-2 my-md-0 font-weight-bold">
-                    <Link to={paths.account}  className="nav-item nav-link">Account</Link>
+                  <li className={"nav-item dropdown" + (show === "account" ? " show" : "") }>
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" onClick={accountDropdown} data-toggle="dropdown" aria-haspopup="true" aria-expanded={show === "account" ? "true" : "false"}>Account</a>
+                    <div className={"dropdown-menu dropdown-menu-right" + (show === "account" ? " show" : "") } aria-labelledby="navbarDropdown">
+                      <Link to={paths.account}  className="dropdown-item">Settings</Link>
+                      <div className="dropdown-divider"></div>
+                      <Link to={paths.logOut}  className="dropdown-item">Log Out</Link>
+                    </div>
+                  </li>
                 </div>
             </div>
         </nav>

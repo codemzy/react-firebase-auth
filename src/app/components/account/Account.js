@@ -7,17 +7,17 @@ import withHead from '../hocHead';
 
 //components
 import Main from '../Main';
-import Details from './Account_Details';
+import Password from './Password';
+import Email from './Email';
 
 function Account(props) {
   return (
     <Main>
-      <div className="container">
-        <h1>My Account</h1>
-        <p className="lead">This is your account page, that will show details about your account if you are logged in.</p>
-        <Details />
-        <Link to={appPath + "/logout"} className="btn btn-danger mt-5">Log Out</Link>
-      </div>
+      <h1>Account Settings</h1>
+      <p className="lead">This is your account page, that will show details about your account if you are logged in.</p>
+      <Email />
+      <Password />
+      <Link to={appPath + "/logout"} className="btn btn-danger mt-5">Log Out</Link>
     </Main>
   );
 }
