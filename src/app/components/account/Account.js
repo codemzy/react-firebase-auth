@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import { appPath } from '../../config/settings';
 
 // hoc
 import withHead from '../hocHead';
@@ -14,10 +12,9 @@ function Account(props) {
   return (
     <Main>
       <h1>Account Settings</h1>
-      <p className="lead">This is your account page, that will show details about your account if you are logged in.</p>
+      <p className="lead">This is your account page, you can verify and change your email address, and update your password.</p>
       <Email />
       <Password />
-      <Link to={appPath + "/logout"} className="btn btn-danger mt-5">Log Out</Link>
     </Main>
   );
 }

@@ -46,8 +46,8 @@ function Nav(props) {
                 </div>
                 <div className="navbar-nav my-2 my-md-0 font-weight-bold">
                   <li className={"nav-item dropdown" + (show === "account" ? " show" : "") }>
-                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" onClick={accountDropdown} data-toggle="dropdown" aria-haspopup="true" aria-expanded={show === "account" ? "true" : "false"}>Account</a>
-                    <div className={"dropdown-menu dropdown-menu-right" + (show === "account" ? " show" : "") } aria-labelledby="navbarDropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" onClick={accountDropdown} data-toggle="dropdown" aria-haspopup="true" aria-expanded={show === "account" ? "true" : "false"}>Account</a>
+                    <div className={"dropdown-menu dropdown-menu-right" + (show === "account" ? " show" : "") } aria-labelledby="accountDropdown">
                       <Link to={paths.account}  className="dropdown-item">Settings</Link>
                       <div className="dropdown-divider"></div>
                       <Link to={paths.logOut}  className="dropdown-item">Log Out</Link>
