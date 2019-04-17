@@ -6,8 +6,8 @@ import * as paths from '../router/paths';
 function Footer(props) {
   return (
     <footer className="container border-top py-4 mt-4">
-      <nav className="navbar navbar-expand navbar-light p-0">
-        <ul className="navbar-nav my-2 my-md-0 mr-md-auto font-weight-bold">
+      <nav className="navbar navbar-expand navbar-light p-0 d-flex flex-wrap">
+        <ul className="navbar-nav my-2 my-md-0 mr-auto font-weight-bold">
           <li className="nav-item">
             <Link to={paths.home} className="nav-link">Dashboard</Link>
           </li>
