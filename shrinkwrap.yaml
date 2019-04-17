@@ -1,9 +1,9 @@
 dependencies:
-  firebase: 5.9.1
+  firebase: 5.9.4
   parcel-bundler: 1.12.3
-  react: 16.8.5
-  react-dom: 16.8.5
-  react-router-dom: 4.3.1
+  react: 16.8.6
+  react-dom: 16.8.6
+  react-router-dom: 5.0.0
   validator: 10.11.0
 packages:
   /@babel/code-frame/7.0.0:
@@ -746,12 +746,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-IvfvnMdSaLBateu0jfsYIpZTxAc2cKEXEMiezGGN75QcBcecDUKd3PgLAncT0oOgxKy8dd8hrJKj9MfzgfZd6g==
-  /@babel/runtime/7.4.2:
+  /@babel/runtime/7.4.3:
     dependencies:
       regenerator-runtime: 0.13.2
     dev: false
     resolution:
-      integrity: sha512-7Bl2rALb7HpvXFL7TETNzKSAeBVCPHELzc0C//9FCxN8nsiueWSJBqaF+2oIJScyILStASR/Cx5WMkXGYTiJFA==
+      integrity: sha512-9lsJwJLxDh/T3Q3SZszfWOTkk3pHbkmH+3KY+zwIDmsNlxsumuhS2TH3NIpktU4kNvfzy+k3eLT7aTJSPTo0OA==
   /@babel/template/7.2.2:
     dependencies:
       '@babel/code-frame': 7.0.0
@@ -812,157 +812,157 @@ packages:
     dev: false
     resolution:
       integrity: sha512-aPvkXyU2SPOnztlgo8n9cEiXW755mgyvueUPcpStqdzoSPm0fjO0vQBjLkt3JKJW7ufikfcnMTTPsN1xaTsBPA==
-  /@firebase/app-types/0.3.7:
+  /@firebase/app-types/0.3.8:
     dev: false
     resolution:
-      integrity: sha512-rY/dw4GeCMhCv9qs0yX8dqL+DL4siQYNkUXAKujte3jVlEy0wNW+AYIkjgFB6jxO39lWDC2hFbYeFXbsFlwtUg==
-  /@firebase/app/0.3.13:
+      integrity: sha512-ZQpVHH/PEX3QB1aUZRzY1KlzAH51dOeJOTPHtAnq9iEHUj+OfxZWwHNPIKL8p2cg2qQ0Wu1JJaZVdhXdfeU7RQ==
+  /@firebase/app/0.3.15:
     dependencies:
-      '@firebase/app-types': 0.3.7
-      '@firebase/util': 0.2.11
+      '@firebase/app-types': 0.3.8
+      '@firebase/util': 0.2.12
       dom-storage: 2.1.0
       tslib: 1.9.3
       xmlhttprequest: 1.8.0
     dev: false
     resolution:
-      integrity: sha512-uhST28epGU7zW+KzYWt/bLzLMy+meOZ9XKpNt5VOTHObMlfKjH7t8eTAtPAJTe5ROoFQkdzkRIOy+EwRQ6uFMg==
-  /@firebase/auth-types/0.5.5:
+      integrity: sha512-c1QLBx8VG+vTfDJ6Mau/WjPUl4o4K2zX72iGwGlSsNgAGv+RnQbLX9k5F0Eo/eMyYMXhBUvgUQqbmwphCXMtSA==
+  /@firebase/auth-types/0.5.6:
     dev: false
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 0.x
     resolution:
-      integrity: sha512-1JDDWZPBhHcW08NoZfkviVlvsPJQpk4gaUKI4sua0EXggpOn5JolXzIs7ZUXfqyLtBRbx690HZeb8orQPzXUEg==
-  /@firebase/auth/0.9.6/@firebase!app@0.3.13:
+      integrity: sha512-UbN/92qdbYUaBf/stqcvLAGcikwJYsRKC1cYlLUJ/NbixfarUBKPvfNyBBI4byLladalUfRCDZ+tRHvR/w9HzA==
+  /@firebase/auth/0.9.8/@firebase!app@0.3.15:
     dependencies:
-      '@firebase/app': 0.3.13
-      '@firebase/auth-types': 0.5.5
+      '@firebase/app': 0.3.15
+      '@firebase/auth-types': 0.5.6
     dev: false
-    id: registry.npmjs.org/@firebase/auth/0.9.6
+    id: registry.npmjs.org/@firebase/auth/0.9.8
     peerDependencies:
       '@firebase/app': 0.x
     resolution:
-      integrity: sha512-j7W0u0/ZPiKi5bbRdBI35FIzaAnmPbGtKkyLS/0gfATwmHDeGYdTwU67SoEHagNPzNtXTInIYU3wVzrX2zlApA==
-  /@firebase/database-types/0.3.8:
+      integrity: sha512-zq6lAruHOPPNJ1qaGJVyAkamZoYtV3AHRWHLBknP0fvzQuMhIMmqZiD8hBuJUk4k5s3uKRHn/zV4hbDhCr5ttQ==
+  /@firebase/database-types/0.3.9:
     dev: false
     peerDependencies:
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-n/D/0S5bIsgrJuFoBa/4F1K1/Lr9jcS3O7sBBsQJJjkZ6WsE0J8Pg5AHJargBYspLh+4x43Pa7x/r5xGjRxbgA==
-  /@firebase/database/0.3.16/@firebase!app@0.3.13:
+      integrity: sha512-+4QSkG3uPQGv9Fsw/mirjznA/OVjPw+pP6csH1smLJNPV4yt6YlDtsUchXpKYq/VMCjc15YHT5dqjyPImWsPNw==
+  /@firebase/database/0.3.18/@firebase!app@0.3.15:
     dependencies:
-      '@firebase/app': 0.3.13
-      '@firebase/database-types': 0.3.8
-      '@firebase/logger': 0.1.10
-      '@firebase/util': 0.2.11
+      '@firebase/app': 0.3.15
+      '@firebase/database-types': 0.3.9
+      '@firebase/logger': 0.1.11
+      '@firebase/util': 0.2.12
       faye-websocket: 0.11.1
       tslib: 1.9.3
     dev: false
-    id: registry.npmjs.org/@firebase/database/0.3.16
+    id: registry.npmjs.org/@firebase/database/0.3.18
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-89Zx6PtZrYcOeOJKoTGSvr/YhNZ3KYLUfloDLgXtNGP6iABkxdpI154kLGL9Bas70ueoIX5ScFmd9eKSwUwWuA==
-  /@firebase/firestore-types/1.1.1:
+      integrity: sha512-O4svJBShtOiPeeaWmnqg9aHMDShOa2E6X28Xvn92E1Bk6fcvusWlId/JEdvjtLKxDzZDU/uvvHRpQTkLCg8Opw==
+  /@firebase/firestore-types/1.1.2:
     dev: false
     peerDependencies:
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-l0hgXrUKj0kW2+unJPiNpBI2fCjvr4ELD7ikSTczP4nX61r55VHdxP0Ft1dbjOq/ICUo2kq/b8AWDeVUF2u6ow==
-  /@firebase/firestore/1.1.1/@firebase!app@0.3.13:
+      integrity: sha512-F93ag4glUQS7mvxs9WRnJXj69HLGyiQ5/jeiJrMMPQ1n+A60IJT9HQuyinGMg4i0cscYVSHvDzLhjDm58J6Jqg==
+  /@firebase/firestore/1.1.4/@firebase!app@0.3.15:
     dependencies:
-      '@firebase/app': 0.3.13
-      '@firebase/firestore-types': 1.1.1
-      '@firebase/logger': 0.1.10
-      '@firebase/webchannel-wrapper': 0.2.16
+      '@firebase/app': 0.3.15
+      '@firebase/firestore-types': 1.1.2
+      '@firebase/logger': 0.1.11
+      '@firebase/webchannel-wrapper': 0.2.17
       grpc: 1.19.0
       tslib: 1.9.3
     dev: false
-    id: registry.npmjs.org/@firebase/firestore/1.1.1
+    id: registry.npmjs.org/@firebase/firestore/1.1.4
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-LcJz8W2WSTSaDJuRkx6NcRbhqjTbG+T+kgkS/xel3XbslkCHT7YHTwJqbJCZu7a6KggEAc1OW4qcngaLbPYzag==
-  /@firebase/functions-types/0.3.2:
+      integrity: sha512-0EeFJI3gh4xer05CZtyLgTic+CUv95d1/b9cIpvsvCg3KoxKm6I0maCJ3Y+h/BKrCXX1DKhBNgCqdPLfcrcB7Q==
+  /@firebase/functions-types/0.3.3:
     dev: false
     resolution:
-      integrity: sha512-TZAlW+SAg8P/m/OY6XgqUufq/KPX56psGvJ58sDztsBTUWg6FzGqIU8n7lBwlYDvHD9Ca6AlGQyxCfYPHtTKzA==
-  /@firebase/functions/0.4.3/@firebase!app@0.3.13:
+      integrity: sha512-4nIVB5cwBKRU3gHiKnE/c7hi7RlBva/iFRRYgJ50bwxwDkG5kEBUxUJsu1NosMEPLmAwpUV2/ImH4qDYxW7SyQ==
+  /@firebase/functions/0.4.4/@firebase!app@0.3.15:
     dependencies:
-      '@firebase/app': 0.3.13
-      '@firebase/functions-types': 0.3.2
-      '@firebase/messaging-types': 0.2.8
+      '@firebase/app': 0.3.15
+      '@firebase/functions-types': 0.3.3
+      '@firebase/messaging-types': 0.2.9
       isomorphic-fetch: 2.2.1
       tslib: 1.9.3
     dev: false
-    id: registry.npmjs.org/@firebase/functions/0.4.3
+    id: registry.npmjs.org/@firebase/functions/0.4.4
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-KQ7zYouuxx0f2mIusWtDy6MgFl8u1mwdwTkb9K+0jrViyWQ0KMRL3xcryVvXe/OEZzRmdiqYwpPp5uNQWWu19g==
-  /@firebase/logger/0.1.10:
+      integrity: sha512-pk1+LrmbvOdUDHi86b2aw7aKlhWkx6xy+2lLmZkVbcCWmxnotKgtoLicudeW9jSdw/tJWL9HkqnKW2pADklBvw==
+  /@firebase/logger/0.1.11:
     dev: false
     resolution:
-      integrity: sha512-JRDSP1OtvMdzhLOuNxSB47rFCsAg59tcduSjCfSrDl1p2xsiBSnclcn/0bUHIG7I0vsA3mGcAx5YuTrvWTa0wQ==
-  /@firebase/messaging-types/0.2.8:
+      integrity: sha512-q6naeOeL2F4IPaG/e6WadhIpvpVP290iy6cNqQvaDSmopcgyCFXaVfR5e7Klwkzp200ntp9bJki/53zD1Vt2Yw==
+  /@firebase/messaging-types/0.2.9:
     dev: false
     peerDependencies:
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-Pz3IZqfWzb/cHBBNAjLKF+yQS7gYtwow1bwXLQhE+ptHB+2V9fEcqYhOYUpDbuE51cH/XO7qGNFVnXSveFBt9g==
-  /@firebase/messaging/0.3.15/@firebase!app@0.3.13:
+      integrity: sha512-UynhgvZzf3AbVxf7OymoqRoS0G4D02gOuqIRXcnuICT4WWh0yZc/Vvg/mwuj4QIXg2wdlQzsFt5qmIVoO4lEIg==
+  /@firebase/messaging/0.3.17/@firebase!app@0.3.15:
     dependencies:
-      '@firebase/app': 0.3.13
-      '@firebase/messaging-types': 0.2.8
-      '@firebase/util': 0.2.11
+      '@firebase/app': 0.3.15
+      '@firebase/messaging-types': 0.2.9
+      '@firebase/util': 0.2.12
       tslib: 1.9.3
     dev: false
-    id: registry.npmjs.org/@firebase/messaging/0.3.15
+    id: registry.npmjs.org/@firebase/messaging/0.3.17
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-g2xRwCq0JoYuqQOQfqxvpTjQyGHkr+DvAUsOsgpfAFa4U1Y8PeKwmGc+mNFWWwari6i3RoWwCgDZTTLPb1LL6Q==
-  /@firebase/polyfill/0.3.9:
+      integrity: sha512-zN568me1gIVa/Hk1s2MBU9Sm1SqoCYI5SVvxS/CZinBI+XXKY8NH4p7Bp7zVqL5SqWrfUzV/SFkSNa0wZ+BrsA==
+  /@firebase/polyfill/0.3.11:
     dependencies:
-      core-js: 2.6.5
+      core-js: 3.0.0
       promise-polyfill: 8.1.0
       whatwg-fetch: 2.0.4
     dev: false
     resolution:
-      integrity: sha512-qA3asZZ1tTfO9b4TjCzvS2pYTIO8XMbqsPHx9yyXkoeZpLLpR8wUE0IHhHKr4urA7IogjApk1MKrFZhfCtB4DA==
-  /@firebase/storage-types/0.2.8:
+      integrity: sha512-k1VTMTk3s8oTheW5gq4p6JboFNc1M3rHBdAHTitMJS2vt31wNXc4TA7huwh2QwSoRClL4G8kj2CMgFCe+yIbww==
+  /@firebase/storage-types/0.2.9:
     dev: false
     peerDependencies:
       '@firebase/app-types': 0.x
       '@firebase/util': 0.x
     resolution:
-      integrity: sha512-kWSmS60OkqE0MDUmvuPNpkWUiDwV5jqzrGEFrsUixSpT8bbxHnSwmnWk5njH+yH0K4e1957JB5P/dtscK0rc7w==
-  /@firebase/storage/0.2.12/@firebase!app@0.3.13:
+      integrity: sha512-ZnPTUn4g7KgMWN+sbNUnE4WtxsaXF3oalLYch3svOmIiS7ftTgbWAXL7mJInqnRhLx7ns/WbP6uwez0bZdjpoQ==
+  /@firebase/storage/0.2.13/@firebase!app@0.3.15:
     dependencies:
-      '@firebase/app': 0.3.13
-      '@firebase/storage-types': 0.2.8
+      '@firebase/app': 0.3.15
+      '@firebase/storage-types': 0.2.9
       tslib: 1.9.3
     dev: false
-    id: registry.npmjs.org/@firebase/storage/0.2.12
+    id: registry.npmjs.org/@firebase/storage/0.2.13
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-CAN370NV7+n2iXj+O/8LqJk3aWQPasXHrIvX6V4kIzqNdlPEZuEbsE7wWZ2B2Aw8JyJw0zWYhnbU+b9IlH8S6Q==
-  /@firebase/util/0.2.11:
+      integrity: sha512-uTBBo22dDSpg3RzKJ/uD1s6hyaKGkbcKlcuYZwhEsEvLuedsEQPKEO5fMCQQ0oFZhIM2tPLxUVS4Kq9Skrkczw==
+  /@firebase/util/0.2.12:
     dependencies:
       tslib: 1.9.3
     dev: false
     resolution:
-      integrity: sha512-sYIxzZcAeK1k0fLa1gWSnIrBFtPLFN+mgTTlQ29Pe9MBppSBluKguh43ejQioDgcGwPGhrbQx8urmSiI55SrCQ==
-  /@firebase/webchannel-wrapper/0.2.16:
+      integrity: sha512-ijt2QFdU7RFrBjlnbl9Dn/YHe1Ukfw2mycl6+LXNVcEJaI78IWsorMCfM3kyoSEEsZxGiK3g3NaWZ8IIuB0A5Q==
+  /@firebase/webchannel-wrapper/0.2.17:
     dev: false
     resolution:
-      integrity: sha512-p5QPUrmag+C77l2S7jtLlixNyBGqgeQLknzZY9ck76ipAUFNk0uJEfHJiI1Tz2pEjB7XwmoovaDhGlQDvNb5vA==
+      integrity: sha512-94Nr1N7sX+AQ5JPPnIMqQlZCXUkowFqTF8X+KmJAc7bTV4nYqv4X7QBnSpmm9zTqgkJjfxdmiDSH7MWopDC9Zw==
   /@iarna/toml/2.2.3:
     dev: false
     resolution:
@@ -1152,6 +1152,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg=
+  /asap/2.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
   /ascli/1.0.1:
     dependencies:
       colour: 0.7.1
@@ -1712,10 +1716,19 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+  /core-js/1.2.7:
+    deprecated: 'core-js@<2.6.5 is no longer maintained. Please, upgrade to core-js@3 or at least to actual version of core-js@2.'
+    dev: false
+    resolution:
+      integrity: sha1-ZSKUwUZR2yj6k70tX/KYOk8IxjY=
   /core-js/2.6.5:
     dev: false
     resolution:
       integrity: sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
+  /core-js/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-WBmxlgH2122EzEJ6GH8o9L/FeoUKxxxZ6q6VUxoTlsE4EvbTWKJb447eyVxTEuq0LpXjlq/kCB2qgBvsYRkLvQ==
   /core-util-is/1.0.2:
     dev: false
     resolution:
@@ -1759,6 +1772,18 @@ packages:
     dev: false
     resolution:
       integrity: sha512-MJG9liiZ+ogc4TzUwuvbER1JRdgvUFSB5+VR/g5h82fGaIRWMWddtKBHi7/sVhfjQZ6SehlyhvQYrcYkaUIpLg==
+  /create-react-context/0.2.3/prop-types@15.7.2:
+    dependencies:
+      fbjs: 0.8.17
+      gud: 1.0.0
+      prop-types: 15.7.2
+    dev: false
+    id: registry.npmjs.org/create-react-context/0.2.3
+    peerDependencies:
+      prop-types: ^15.0.0
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-CQBmD0+QGgTaxDL3OX1IDXYqjkp2It4RIbcb99jS6AEg27Ga+a9G3JtK6SIu0HBwPLZlmwt9F7UwWA4Bn92Rag==
   /cross-spawn/6.0.5:
     dependencies:
       nice-try: 1.0.5
@@ -2434,6 +2459,18 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-8O/hjE9W5PQK/H4Gxxn9XuYYjzg=
+  /fbjs/0.8.17:
+    dependencies:
+      core-js: 1.2.7
+      isomorphic-fetch: 2.2.1
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      promise: 7.3.1
+      setimmediate: 1.0.5
+      ua-parser-js: 0.7.19
+    dev: false
+    resolution:
+      integrity: sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
   /filesize/3.6.1:
     dev: false
     engines:
@@ -2451,19 +2488,19 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-1USBHUKPmOsGpj3EAtJAPDKMOPc=
-  /firebase/5.9.1:
+  /firebase/5.9.4:
     dependencies:
-      '@firebase/app': 0.3.13
-      '@firebase/auth': /@firebase/auth/0.9.6/@firebase!app@0.3.13
-      '@firebase/database': /@firebase/database/0.3.16/@firebase!app@0.3.13
-      '@firebase/firestore': /@firebase/firestore/1.1.1/@firebase!app@0.3.13
-      '@firebase/functions': /@firebase/functions/0.4.3/@firebase!app@0.3.13
-      '@firebase/messaging': /@firebase/messaging/0.3.15/@firebase!app@0.3.13
-      '@firebase/polyfill': 0.3.9
-      '@firebase/storage': /@firebase/storage/0.2.12/@firebase!app@0.3.13
+      '@firebase/app': 0.3.15
+      '@firebase/auth': /@firebase/auth/0.9.8/@firebase!app@0.3.15
+      '@firebase/database': /@firebase/database/0.3.18/@firebase!app@0.3.15
+      '@firebase/firestore': /@firebase/firestore/1.1.4/@firebase!app@0.3.15
+      '@firebase/functions': /@firebase/functions/0.4.4/@firebase!app@0.3.15
+      '@firebase/messaging': /@firebase/messaging/0.3.17/@firebase!app@0.3.15
+      '@firebase/polyfill': 0.3.11
+      '@firebase/storage': /@firebase/storage/0.2.13/@firebase!app@0.3.15
     dev: false
     resolution:
-      integrity: sha512-L4edGoHlWY4EM1IA2ItpDushst+Sg9JZ3D3elHaxtg4tutYZOE8TsP+xjp/yC/iruhUVeXTIVBit4H6+pFw6qg==
+      integrity: sha512-ZHAZ0pGJ/pHewNXCRceoG88j6dtIrqrXEvbVNPbcrv3hk4y9VhejULI9snaBryPAlljVGRzXBB5TcY5wxFYfEQ==
   /for-in/1.0.2:
     dev: false
     engines:
@@ -2593,6 +2630,10 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-xX+jZ1M3YXjngsRj/gTxB4EwM0WoWUr54DmyNq9xTeg1oSuVaTPD/PK9wnZKOJWTt1pkeFspXqwJPhddZNxHOA==
+  /gud/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==
   /har-schema/2.0.0:
     dev: false
     engines:
@@ -2699,10 +2740,10 @@ packages:
       integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
   /history/4.9.0:
     dependencies:
-      '@babel/runtime': 7.4.2
+      '@babel/runtime': 7.4.3
       loose-envify: 1.4.0
       resolve-pathname: 2.2.0
-      tiny-invariant: 1.0.3
+      tiny-invariant: 1.0.4
       tiny-warning: 1.0.2
       value-equal: 0.4.0
     dev: false
@@ -2716,10 +2757,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-0nRXAQJabHdabFRXk+1QL8DGSaE=
-  /hoist-non-react-statics/2.5.5:
+  /hoist-non-react-statics/3.3.0:
+    dependencies:
+      react-is: 16.8.6
     dev: false
     resolution:
-      integrity: sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
+      integrity: sha512-0XsbTXxgiaCDYDIWFcwkmerZPSwywfUqYmwT4jzewKTQSWoE6FCMoUVOeBJWK3E/CrWbxRG3m5GzY4lnIwGRBA==
   /hsl-regex/1.0.0:
     dev: false
     resolution:
@@ -4358,6 +4401,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-OzSf6gcCUQ01byV4BgwyUCswlaQQ6gzXc23aLQWhicvfX9kfsUiUhgt3CCQej8jDnl8/PhGF31JdHX2/MzF3WA==
+  /promise/7.3.1:
+    dependencies:
+      asap: 2.0.6
+    dev: false
+    resolution:
+      integrity: sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg==
   /prop-types/15.7.2:
     dependencies:
       loose-envify: 1.4.0
@@ -4468,59 +4517,67 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-9JvmtIeJTdxA3MlKMi9hEJLgDV4=
-  /react-dom/16.8.5:
+  /react-dom/16.8.6:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       prop-types: 15.7.2
-      scheduler: 0.13.5
+      scheduler: 0.13.6
     dev: false
     peerDependencies:
       react: ^16.0.0
     resolution:
-      integrity: sha512-VIEIvZLpFafsfu4kgmftP5L8j7P1f0YThfVTrANMhZUFMDOsA6e0kfR6wxw/8xxKs4NB59TZYbxNdPCDW34x4w==
+      integrity: sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
   /react-is/16.8.5:
     dev: false
     resolution:
       integrity: sha512-sudt2uq5P/2TznPV4Wtdi+Lnq3yaYW8LfvPKLM9BKD8jJNBkxMVyB0C9/GmVhLw7Jbdmndk/73n7XQGeN9A3QQ==
-  /react-router-dom/4.3.1:
+  /react-is/16.8.6:
+    dev: false
+    resolution:
+      integrity: sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+  /react-router-dom/5.0.0:
     dependencies:
+      '@babel/runtime': 7.4.3
       history: 4.9.0
-      invariant: 2.2.4
       loose-envify: 1.4.0
       prop-types: 15.7.2
-      react-router: 4.3.1
-      warning: 4.0.3
+      react-router: 5.0.0
+      tiny-invariant: 1.0.4
+      tiny-warning: 1.0.2
     dev: false
     peerDependencies:
       react: '>=15'
     resolution:
-      integrity: sha512-c/MlywfxDdCp7EnB7YfPMOfMD3tOtIjrQlj/CKfNMBxdmpJP8xcz5P/UAFn3JbnQCNUxsHyVVqllF9LhgVyFCA==
-  /react-router/4.3.1:
+      integrity: sha512-wSpja5g9kh5dIteZT3tUoggjnsa+TPFHSMrpHXMpFsaHhQkm/JNVGh2jiF9Dkh4+duj4MKCkwO6H08u6inZYgQ==
+  /react-router/5.0.0:
     dependencies:
+      '@babel/runtime': 7.4.3
+      create-react-context: /create-react-context/0.2.3/prop-types@15.7.2
       history: 4.9.0
-      hoist-non-react-statics: 2.5.5
-      invariant: 2.2.4
+      hoist-non-react-statics: 3.3.0
       loose-envify: 1.4.0
       path-to-regexp: 1.7.0
       prop-types: 15.7.2
-      warning: 4.0.3
+      react-is: 16.8.6
+      tiny-invariant: 1.0.4
+      tiny-warning: 1.0.2
     dev: false
     peerDependencies:
       react: '>=15'
     resolution:
-      integrity: sha512-yrvL8AogDh2X42Dt9iknk4wF4V8bWREPirFfS9gLU1huk6qK41sg7Z/1S81jjTrGHxa3B8R3J6xIkDAA6CVarg==
-  /react/16.8.5:
+      integrity: sha512-6EQDakGdLG/it2x9EaCt9ZpEEPxnd0OCLBHQ1AcITAAx7nCnyvnzf76jKWG1s2/oJ7SSviUgfWHofdYljFexsA==
+  /react/16.8.6:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       prop-types: 15.7.2
-      scheduler: 0.13.5
+      scheduler: 0.13.6
     dev: false
     engines:
       node: '>=0.10.0'
     resolution:
-      integrity: sha512-daCb9TD6FZGvJ3sg8da1tRAtIuw29PbKZW++NN4wqkbEvxL+bZpaaYb4xuftW/SpXmgacf1skXl/ddX6CdOlDw==
+      integrity: sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
   /readable-stream/2.3.6:
     dependencies:
       core-util-is: 1.0.2
@@ -4792,13 +4849,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
-  /scheduler/0.13.5:
+  /scheduler/0.13.6:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
     dev: false
     resolution:
-      integrity: sha512-K98vjkQX9OIt/riLhp6F+XtDPtMQhqNcf045vsh+pcuvHq+PHy1xCrH3pq1P40m6yR46lpVvVhKdEOtnimuUJw==
+      integrity: sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
   /semver/5.7.0:
     dev: false
     hasBin: true
@@ -5220,10 +5277,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-k9nez/yIBb1X6uQxDwt0Xptvs6c=
-  /tiny-invariant/1.0.3:
+  /tiny-invariant/1.0.4:
     dev: false
     resolution:
-      integrity: sha512-ytQx8T4DL8PjlX53yYzcIC0WhIZbpR0p1qcYjw2pHu3w6UtgWwFJQ/02cnhOnBBhlFx/edUIfcagCaQSe3KMWg==
+      integrity: sha512-lMhRd/djQJ3MoaHEBrw8e2/uM4rs9YMNk0iOr8rHQ0QdbM7D4l0gFl3szKdeixrlyfm9Zqi4dxHCM2qVG8ND5g==
   /tiny-warning/1.0.2:
     dev: false
     resolution:
@@ -5332,6 +5389,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+  /ua-parser-js/0.7.19:
+    dev: false
+    resolution:
+      integrity: sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
   /uncss/0.16.2:
     dependencies:
       commander: 2.20.0
@@ -5516,12 +5577,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-gqwr/2PZUOqeMYmlimViX+3xkEU=
-  /warning/4.0.3:
-    dependencies:
-      loose-envify: 1.4.0
-    dev: false
-    resolution:
-      integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==
   /wcwidth/1.0.1:
     dependencies:
       defaults: 1.0.3
@@ -5658,9 +5713,9 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
-  firebase: ^5.9.1
+  firebase: ^5.9.2
   parcel-bundler: ^1.12.3
-  react: ^16.8.3
-  react-dom: ^16.6.3
-  react-router-dom: ^4.3.1
+  react: ^16.8.6
+  react-dom: ^16.8.6
+  react-router-dom: ^5.0.0
   validator: ^10.10.0
